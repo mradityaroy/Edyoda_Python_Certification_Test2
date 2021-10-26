@@ -57,7 +57,7 @@ class Test:
 
     def View_Quizzes(self):
         if self.MCQ=={}:
-            print("------------Sorry!! No Quiz Exist------------")
+            print("------------Sorry!! No Quiz Available------------")
             print("If You Are User Please Come After Some Time\n\nIf You Are a Admin Please Add Quiz First")
         else:
             for type_of_sub in self.MCQ:
@@ -84,8 +84,8 @@ class Test:
             
     def Edit_Quiz(self):
         if self.MCQ=={}:
-            print("------------Sorry!! No Quiz Exist------------")
-            print("Please Add Quiz First")
+            print("------------Sorry!! No Quiz Available------------")
+            print("--------------Please Add Quiz First--------------")
         else:
             choices = {1:'Topic',2:'Question',3:'Option'}
             for value in choices:
@@ -156,11 +156,11 @@ class Test:
     
     def Delete_Quiz(self):
         if self.MCQ=={}:
-            print("------------Sorry!! No Quiz Exist------------")
-            print("Please Add Quiz First")
+            print("------------Sorry!! No Quiz Available------------")
+            print("--------------Please Add Quiz First--------------")
         else:
-            del self.MCQ
-            del self.All_Topic
+            for i in range(1,len(self.MCQ)+1):
+                del self.MCQ[i]
         
 ##------------------------------------End of Delete Quize function---------------------------------------##
 
@@ -185,8 +185,8 @@ class Test:
 
     def View_Topics(self):
         if self.All_Topic=={}:
-            print("------------Sorry!! No Topic Exist------------")
-            print("Please Add Quiz First")
+            print("------------Sorry!! No Topic Available------------")
+            print("--------------Please Add Topic First---------------")
         else:
             for value in self.All_Topic:
                 print(str(value)+'.',self.All_Topic[value],'\n')
@@ -196,13 +196,15 @@ class Test:
             
     def Edit_Topics(self):
         if self.All_Topic=={}:
-            print("------------Sorry!! No Topic Exist------------")
-            print("Please Add Topic First")
+            print("------------Sorry!! No Topic Available------------")
+            print("--------------Please Add Topic First--------------")
         else:
             for value in self.All_Topic:
                 print(str(value)+'.',self.All_Topic[value])
             topic_no=int(input("\n Enter the topic number you want to edit"))
-            self.All_Topic[topic_no]=input("\n Enter topic name: ")
+            topic_name=input("\n Enter topic name: ")
+            self.All_Topic[topic_no]=topic_name
+            self.MCQ[topic_no]['Topic']=topic_name
 
 ##------------------------------------Edit topic function---------------------------------------##
 
@@ -210,7 +212,8 @@ class Test:
 #------------------------------------Delete Topic function start---------------------------------------#    
     
     def Delete_Topics(self):
-        del self.All_Topic
+        for i in range(1,len(self.All_Topic)+1):
+            del self.All_Topic
         
 ##------------------------------------End of Delete Topics function---------------------------------------#        
         
@@ -223,7 +226,7 @@ class Test:
         answerr={}
         if self.MCQ=={}:
             print("------------Sorry!! No Quiz Exist------------")
-            print("If You Are User Please Come After Some Time\n\nIf You Are a Admin Please Add Quiz First")
+            print("-- If You Are User Please Come After Some Time --\n\n--If You Are a Admin Please Add Quiz First--")
         else:
             print("================List of Topic Available for Quiz===============")
             for type_of_sub in self.MCQ:
