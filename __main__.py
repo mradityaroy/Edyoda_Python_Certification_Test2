@@ -199,16 +199,12 @@ class Test:
             print("------------Sorry!! No Topic Available------------")
             print("--------------Please Add Topic First--------------")
         else:
-            for value in self.All_Topic:
+            for value in range(1,len(self.All_Topic)+1):
                 print(str(value)+'.',self.All_Topic[value])
             topic_no=int(input("\n Enter the topic number you want to edit"))
             topic_name=input("\n Enter topic name: ")
             self.All_Topic[topic_no]=topic_name
-            if self.MCQ=={}:
-                for i in range(len(self.All_Topic),topic_no+1):
-                    self.MCQ[topic_no]['Topic']=topic_name
-            else:
-                self.MCQ[topic_no]['Topic']=topic_name
+
 
 ##------------------------------------Edit topic function---------------------------------------##
 
