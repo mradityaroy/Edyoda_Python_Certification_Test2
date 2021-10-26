@@ -213,7 +213,7 @@ class Test:
     
     def Delete_Topics(self):
         for i in range(1,len(self.All_Topic)+1):
-            del self.All_Topic
+            del self.All_Topic[i]
         
 ##------------------------------------End of Delete Topics function---------------------------------------#        
         
