@@ -60,11 +60,11 @@ class Test:
             print("------------Sorry!! No Quiz Available------------")
             print("If You Are User Please Come After Some Time\n\nIf You Are a Admin Please Add Quiz First")
         else:
-            for type_of_sub in self.MCQ:
+            for type_of_sub in range(1,len(self.MCQ)+1):
                 print('Topic',str(type_of_sub)+'.',self.MCQ[type_of_sub]['Topic'])
                 print('===================')
                 question_counter = 1
-                for question_no in self.MCQ:
+                for question_no in range(1,len(self.MCQ[type_of_sub])):
                     print('Q.',str(question_counter)+')',self.MCQ[type_of_sub][question_no]['question'])
                     print('=#=#=#=#=#=#=#=#=#=#=#=#=#')
                     question_counter+=1
