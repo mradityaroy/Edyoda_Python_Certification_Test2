@@ -204,7 +204,11 @@ class Test:
             topic_no=int(input("\n Enter the topic number you want to edit"))
             topic_name=input("\n Enter topic name: ")
             self.All_Topic[topic_no]=topic_name
-            self.MCQ[topic_no]['Topic']=topic_name
+            if self.MCQ=={}:
+                for i in range(len(self.All_Topic),topic_no+1):
+                    self.MCQ[topic_no]['Topic']=topic_name
+            else:
+                self.MCQ[topic_no]['Topic']=topic_name
 
 ##------------------------------------Edit topic function---------------------------------------##
 
@@ -298,6 +302,7 @@ def login(user_or_admin):
         password=input("Enter password: ")
         if username in user:
             if user[username]==password:
+                print('---------WELCOME---------')
                 choice_user = {1:'press 1 for Attempt Quizzes',2:'press 2 for logout'}
                 while True:
                     for value in choice_user:
@@ -314,7 +319,7 @@ def login(user_or_admin):
                 print("\n Invaild Credentials!")
         else:
         	print("We search everywhere in our system but unfortunately username not found please register with us first")
-        	register()
+        	action_perform()
 
     elif user_or_admin=='2':
         username=input("\nEnter username: ")
